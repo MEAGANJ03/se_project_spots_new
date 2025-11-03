@@ -55,6 +55,10 @@ const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostLinkEl = newPostModal.querySelector("#post-link-input");
 const newPostTitleEl = newPostModal.querySelector("#post-title-input");
 
+const newPostSubmit = newPostModal.querySelector(".modal__form");
+const cardImageInput = newPostModal.querySelector(".modal__input");
+const cardCaptionInput = newPostModal.querySelector(".card__image");
+
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
@@ -64,19 +68,17 @@ function handleNewPostSubmit(evt) {
   closeModal(newPostModal);
 }
 
-newPostForm.addEventListener("submit", handleNewPostSubmit);
-
-const cardImageInput = cardImageInput.querySelector(".modal__form");
-const nameInput = cardImageInput.querySelector(".modal__input");
-const linkInput = cardImageInput.querySelector(".card__image");
-
 cardImageInput.addEventListener("click", function () {
-  openModal(cardImageInput);
+  openModal(newPostModal);
 });
 
-function handleAddCardSubmit(evt) {
+cardCaptionInput.addEventListener("click", function () {
+  openModal(newPostModal);
+});
+
+function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  closeModal(cardImageInput);
+  closeModal(newPostModal);
 }
 
-cardImageInput.addEventListener("submit", handleAddCardSubmit);
+newPostForm.addEventListener("submit", handleNewPostSubmit);
