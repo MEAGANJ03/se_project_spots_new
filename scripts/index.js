@@ -66,17 +66,17 @@ function handleNewPostSubmit(evt) {
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
-const addCardFormElement = addCardFormElement.querySelector(".modal__form");
-const nameInput = addCardFormElement.querySelector(".modal__input");
-const linkInput = addCardFormElement.querySelector(".card__image");
+const cardFormElement = cardFormElement.querySelector(".modal__form");
+const nameInput = cardFormElement.querySelector(".modal__input");
+const linkInput = cardFormElement.querySelector(".card__image");
 
-addCardFormElement.addEventListener("click", function () {
-  openModal(addCardFormElement);
+cardFormElement.addEventListener("click", function () {
+  openModal(cardFormElement);
 });
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  closeModal(addCardFormElement);
+  closeModal(cardFormElement);
 }
 
-addCardFormElement.addEventListener("submit", handleAddCardSubmit);
+cardFormElement.addEventListener("submit", handleAddCardSubmit);
