@@ -53,19 +53,30 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostLinkEl = newPostModal.querySelector("#post-link-input");
-const newPostCaptionEl = newPostModal.querySelector(".card__title");
+const newPostTitleEl = newPostModal.querySelector("#post-title-input");
 
 newPostBtn.addEventListener("click", function () {
-  newPostBtn.value = newPostLinkEl.textContent;
-  newPostModal.value = newPostCaptionEl.textContent;
-  openModal(editProfileModal);
+  openModal(newPostModal);
 });
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  newPostLinkEl.textContent = newPostLinkEl.value;
-  newPostCaptionEl.textContent = newPostCaptionEl.value;
   closeModal(newPostModal);
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
+
+const addCardFormElement = addCardFormElement.querySelector(".modal__form");
+const nameInput = addCardFormElement.querySelector(".modal__input");
+const linkInput = addCardFormElement.querySelector(".card__image");
+
+addCardFormElement.addEventListener("click", function () {
+  openModal(addCardFormElement);
+});
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  closeModal(addCardFormElement);
+}
+
+addCardFormElement.addEventListener("submit", handleAddCardSubmit);
