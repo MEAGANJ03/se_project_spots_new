@@ -64,9 +64,4 @@ function handleNewPostSubmit(evt) {
   closeModal(newPostModal);
 }
 
-function handleNewPostSubmit(evt) {
-  evt.preventDefault();
-  closeModal(newPostModal);
-}
-
 newPostForm.addEventListener("submit", handleNewPostSubmit);
