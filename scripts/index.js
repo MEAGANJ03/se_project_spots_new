@@ -61,6 +61,8 @@ newPostBtn.addEventListener("click", function () {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
+  console.log("Val Thorens");
+  console.log("https://unsplash.com/example.jpg", newPostLinkEl.value);
   closeModal(newPostModal);
 }
 

@@ -9,7 +9,7 @@
 .profile__avatar {
   height: 190px;
   width: 190px;
-  margin-right: 20px;
+  margin: 0 0 12px 0;
 }
 
 .profile__column {
