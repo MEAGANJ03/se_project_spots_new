@@ -64,6 +64,7 @@ function handleNewPostSubmit(evt) {
   console.log("Val Thorens");
   console.log("https://unsplash.com/example.jpg", newPostLinkEl.value);
   closeModal(newPostModal);
+  newPostForm.reset();
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
