@@ -43,6 +43,28 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitleEl = cardTemplate.querySelector(".card__title");
+  const cardImageEl = cardTemplate.querySelector(".card__image");
+
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardTitleEl.textContent = data.name;
+
+  const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+  cardLikeBtnEl.addEventListener("click", function () {
+    cardLikeBtnEl.classList.toggle("card__like-btn_liked");
+  });
+
+  return cardElement;
+}
+
 function openModal(Modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -92,8 +114,17 @@ newPostBtn.addEventListener("click", function () {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
+
   console.log("Val Thorens");
   console.log("https://unsplash.com/example.jpg", newPostLinkEl.value);
+
+  const inputValues = {
+    name: captionInputEl.value,
+    link: imageInputEl.value,
+  };
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
+
   closeModal(newPostModal);
   newPostForm.reset();
 }
@@ -101,6 +132,6 @@ function handleNewPostSubmit(evt) {
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
 initialCards.forEach(function (item) {
-  console.log(item.name);
-  console.log(item.link);
+  const cardElement = getCardElement(item);
+  cardsList.append(cardElement);
 });
