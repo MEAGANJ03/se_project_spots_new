@@ -4,6 +4,7 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card__title {
@@ -25,13 +26,6 @@
   margin-top: 12px;
 }
 
-.card__image {
-  height: 413px;
-  object-fit: cover;
-  margin-bottom: 12px;
-  border-radius: 8px;
-}
-
 .card__delete-btn {
   width: 32px;
   height: 32px;
@@ -41,7 +35,8 @@
   background-color: transparent;
   background-image: url(../images/delete.svg);
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  background-repeat: no-repeat;
 }
 
 .card__like-btn {
@@ -49,7 +44,7 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
+  opacity: 0.4;
   cursor: pointer;
 }
 
