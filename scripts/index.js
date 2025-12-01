@@ -1,8 +1,8 @@
 const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-john-moeses-bauan-from-pexels.jpg",
-  },
+  // {
+  //   name: "Golden Gate Bridge",
+  //   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-john-moeses-bauan-from-pexels.jpg",
+  // },
   {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -36,6 +36,7 @@ const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
+
 const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input"
 );
@@ -47,7 +48,7 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
-const previewModal = document.querySelector("#preview-modal");
+const previewModal = document.querySelector("#new-post-modal");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
@@ -82,7 +83,7 @@ function getCardElement(data) {
 }
 
 function openModal(Modal) {
-  modal.classList.add("modal_is-opened");
+  Modal.classList.add("modal_is-opened");
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -131,9 +132,6 @@ newPostBtn.addEventListener("click", function () {
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
 
-  console.log("Val Thorens");
-  console.log("https://unsplash.com/example.jpg", newPostLinkEl.value);
-
   const inputValues = {
     name: captionInputEl.value,
     link: imageInputEl.value,
@@ -146,8 +144,8 @@ function handleNewPostSubmit(evt) {
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
-
+console.log(initialCards);
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
+  cardsList.prepend(cardElement);
 });
