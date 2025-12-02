@@ -1,8 +1,8 @@
 const initialCards = [
-  // {
-  //   name: "Golden Gate Bridge",
-  //   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-john-moeses-bauan-from-pexels.jpg",
-  // },
+  {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-john-moeses-bauan-from-pexels.jpg",
+  },
   {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -60,8 +60,8 @@ const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardTitleEl = cardTemplate.querySelector(".card__title");
-  const cardImageEl = cardTemplate.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
 
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;

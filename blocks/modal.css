@@ -39,8 +39,8 @@
   width: 40px;
   height: 40px;
   opacity: 1;
-  top: 30px;
-  left: 700px;
+  top: 10px;
+  left: 672px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -89,7 +89,6 @@
 
 .modal__container {
   position: relative;
-  background-color: transparent;
 }
 
 .modal__image {
