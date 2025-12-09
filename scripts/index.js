@@ -79,6 +79,11 @@ function getCardElement(data) {
     openModal(previewModal);
   });
 
+  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
+  cardDeleteBtnEl.addEventListener("click", function () {
+    cardElement.remove();
+  });
+
   return cardElement;
 }
 
@@ -95,10 +100,6 @@ editProfileBtn.addEventListener("click", function () {
 editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
-
-function openModal(modal) {
-  modal.classList.add("modal_is-opened");
-}
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
@@ -122,8 +123,8 @@ function handleEditProfileSubmit(evt) {
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 const newPostForm = newPostModal.querySelector(".modal__form");
-const newPostLinkEl = newPostModal.querySelector("#card-image-input");
-const newPostTitleEl = newPostModal.querySelector("#card-caption-input");
+const newPostLinkEl = newPostModal.querySelector("#new-post-link-input");
+const newPostTitleEl = newPostModal.querySelector("#new-post-caption-input");
 
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
@@ -133,8 +134,8 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
 
   const inputValues = {
-    name: captionInputEl.value,
-    link: imageInputEl.value,
+    name: newPostTitleEl.value,
+    link: newPostLinkEl.value,
   };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
