@@ -72,6 +72,11 @@ function getCardElement(data) {
     cardLikeBtnEl.classList.toggle("card__like-btn_liked");
   });
 
+  const cardModalCloseBtnEl = cardElement.querySelector(".card__close-btn");
+  cardModalCloseBtnEl.addEventListener("click", function () {
+    closeModal(previewModal);
+  });
+
   cardImageEl.addEventListener("click", function () {
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
@@ -87,8 +92,8 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function openModal(Modal) {
-  Modal.classList.add("modal_is-opened");
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
 }
 
 editProfileBtn.addEventListener("click", function () {

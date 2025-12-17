@@ -119,8 +119,8 @@
 }
 
 .modal__caption {
-  width: 214px;
-  height: 32px;
+  width: fit-content;
+  max-width: 260px;
   opacity: 1;
   background-color: #212121cc;
   border-radius: 8px;
@@ -130,7 +130,6 @@
   padding-left: 8px;
   color: #ffffff;
   font-size: 20px;
-  white-space: nowrap;
 }
 
 .modal__submit-btn {
@@ -183,18 +182,7 @@
   }
 
   .modal__image {
-    max-height: unset;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .modal__close-btn_type_preview {
-    top: 158px;
-    left: 264px;
-  }
-
-  .modal__image {
-    height: 192px;
-    width: 288px;
+    height: 240px;
+    width: 320px;
   }
 }
