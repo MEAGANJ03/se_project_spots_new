@@ -53,6 +53,8 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
+const cardModalCloseBtnEl = previewModal.querySelector(".modal__close-btn");
+
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -73,6 +75,7 @@ function getCardElement(data) {
   });
 
   const cardModalCloseBtnEl = cardElement.querySelector(".card__close-btn");
+  console.log(cardModalCloseBtnEl + " Element found");
   cardModalCloseBtnEl.addEventListener("click", function () {
     closeModal(previewModal);
   });
