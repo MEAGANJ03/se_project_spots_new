@@ -55,6 +55,7 @@
   background-color: transparent;
   opacity: 0.4;
   cursor: pointer;
+  background-image: url("../images/like-icon-dark(1).svg");
 }
 
 .card__like-btn:hover {
