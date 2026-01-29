@@ -62,9 +62,10 @@
   opacity: 100%;
 }
 
-.card__like-btn:active {
-  background-color: #ff6347;
+.card__like-btn_liked {
+  background-image: url("../images/like-active.svg");
   border-radius: 15px;
+  color: #ff6347;
 }
 
 .card__like-btn:active:hover {
