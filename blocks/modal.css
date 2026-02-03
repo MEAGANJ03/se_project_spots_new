@@ -38,14 +38,8 @@
   box-sizing: border-box;
 }
 
-.modal__container_type_preview {
-  width: 446.43vw;
-  height: 661px;
-  border-radius: 8px;
-  opacity: 1;
-  top: 81px;
-  left: 497px;
-  box-sizing: border-box;
+.modal__container-preview {
+  position: relative;
 }
 
 .modal__close-btn {
@@ -64,7 +58,7 @@
   width: 40px;
   height: 40px;
   opacity: 1;
-  top: 0x;
+  top: 0;
   right: -40px;
   border: none;
   background-color: transparent;
@@ -136,7 +130,7 @@
 }
 
 .modal__submit-btn {
-  max-width: 100%;
+  max-width: 156px;
   height: 52px;
   opacity: 1;
   border-radius: 8px;
@@ -165,8 +159,12 @@
   }
 
   .modal__close-btn {
-    top: 22px;
+    top: 12px;
     right: 12px;
+  }
+
+  .modal__submit-btn {
+    width: 100%;
   }
 
   .modal__form {
