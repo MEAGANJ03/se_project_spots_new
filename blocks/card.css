@@ -64,8 +64,7 @@
 
 .card__like-btn_liked {
   background-image: url("../images/like-active.svg");
-  border-radius: 15px;
-  color: #ff6347;
+  background-repeat: no-repeat;
 }
 
 .card__like-btn:active:hover {
