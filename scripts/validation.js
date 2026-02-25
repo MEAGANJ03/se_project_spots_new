@@ -10,6 +10,7 @@ const settings = {
 const showInputError = (formEl, inputEl, errorMsg) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
+  errorMsgEl.classList.add("modal__error_visible");
   inputEl.classList.add("modal__input_type_error");
 };
 
@@ -40,10 +41,10 @@ const toggleButtonState = (inputList, buttonEl) => {
   } else {
     buttonEl.disabled = false;
   }
+  buttonEl.classList.remove(config.inactiveButtonClass);
 };
 
 const disableSubmitButton = (buttonEl, config) => {
-  debugger;
   buttonEl.disabled = true;
 };
 

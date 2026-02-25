@@ -113,6 +113,10 @@
   margin-top: 8px;
 }
 
+.modal__error_visible {
+  display: block;
+}
+
 .modal__container {
   position: relative;
 }
@@ -155,6 +159,11 @@
   background-color: #212121;
   cursor: pointer;
   border: none;
+}
+
+.modal__submit-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .modal__submit-btn:hover {

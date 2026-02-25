@@ -74,6 +74,8 @@ function getCardElement(data) {
 
   previewModalCloseBtn.addEventListener("click", function () {
     closeModal(previewModal);
+    previewImageEl.src = "";
+    previewImageEl.alt = "";
   });
 
   cardImageEl.addEventListener("click", function () {
@@ -93,6 +95,7 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscKey);
 }
 
 editProfileBtn.addEventListener("click", function () {
