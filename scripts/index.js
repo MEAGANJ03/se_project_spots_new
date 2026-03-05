@@ -107,9 +107,9 @@ function openModal(modal) {
   });
 }
 
-function closeModal(modal) {
-  modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", handleEscKey);
+function openModal(modal) {
+  // open the modal
+  document.addEventListener("keydown", handleEscape);
 }
 
 editProfileBtn.addEventListener("click", function () {
