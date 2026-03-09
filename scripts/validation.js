@@ -11,6 +11,8 @@ const showInputError = (formEl, inputEl, errorMsg) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
   errorMsgEl.classList.add("modal__error_visible");
+  enableValidation(settings);
+  setEventListeners(formEl, settings);
   inputEl.classList.add("modal__input_type_error");
 };
 
@@ -19,6 +21,8 @@ const hideInputError = (formEl, inputEl) => {
   errorMsgEl.textContent = "";
   inputEl.classList.remove("modal__input_type_error");
 };
+
+resetValidationErrors();
 
 const checkInputValidity = (formEl, inputEl) => {
   if (!inputEl.validity.valid) {
