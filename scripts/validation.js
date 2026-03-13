@@ -11,8 +11,6 @@ const showInputError = (formEl, inputEl, errorMsg) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
   errorMsgEl.classList.add("modal__error_visible");
-  enableValidation(settings);
-  setEventListeners(formEl, settings);
   inputEl.classList.add("modal__input_type_error");
 };
 
@@ -21,8 +19,6 @@ const hideInputError = (formEl, inputEl) => {
   errorMsgEl.textContent = "";
   inputEl.classList.remove("modal__input_type_error");
 };
-
-resetValidationErrors();
 
 const checkInputValidity = (formEl, inputEl) => {
   if (!inputEl.validity.valid) {
@@ -38,31 +34,21 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonEl) => {
-  const disableSubmitButton = (buttonEl, config) => {
+const toggleButtonState = (inputList, buttonEl, config) => {
+  if (hasInvalidInput(inputList)) {
     buttonEl.disabled = true;
     buttonEl.classList.add(config.inactiveButtonClass);
-  };
-
-  const toggleButtonState = (inputList, buttonEl, config) => {
-    if (hasInvalidInput(inputList)) {
-      disableSubmitButton(buttonEl, config);
-    } else {
-      buttonEl.disabled = false;
-      buttonEl.classList.remove(config.inactiveButtonClass);
-    }
-  };
-  if (hasInvalidInput(inputList)) {
-    disableSubmitButton(buttonEl);
-    buttonEl.disabled = true;
   } else {
     buttonEl.disabled = false;
+    buttonEl.classList.remove(config.inactiveButtonClass);
   }
-  buttonEl.classList.remove(config.inactiveButtonClass);
 };
+
+// duplicate toggleButtonState and stray code removed
 
 const disableSubmitButton = (buttonEl, config) => {
   buttonEl.disabled = true;
+  buttonEl.classList.add(config.inactiveButtonClass);
 };
 
 const resetValidation = (formEl, inputList) => {
@@ -74,13 +60,10 @@ const resetValidation = (formEl, inputList) => {
 };
 
 const setEventListeners = (formEl, config) => {
-  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-  const buttonElement = formEl.querySelector(config.submitButtonSelector);
-
-  console.log(inputList);
-  console.log(buttonElement);
-
-  toggleButtonState(inputList, buttonElement, config);
+  const disableSubmitButton = (buttonEl, config = settings) => {
+    buttonEl.disabled = true;
+    buttonEl.classList.add(config.inactiveButtonClass);
+  };
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {

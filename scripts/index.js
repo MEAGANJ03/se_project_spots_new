@@ -160,7 +160,6 @@ function handleNewPostSubmit(evt) {
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
-console.log(initialCards);
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
