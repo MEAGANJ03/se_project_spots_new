@@ -55,20 +55,32 @@ const resetValidation = (formEl, inputList) => {
   inputList.forEach((inputEl) => {
     hideInputError(formEl, inputEl);
   });
-  const buttonEl = formEl.querySelector(".modal__submit-btn");
-  disableSubmitButton(buttonEl);
 };
 
 const setEventListeners = (formEl, config) => {
-  const disableSubmitButton = (buttonEl, config = settings) => {
-    buttonEl.disabled = true;
-    buttonEl.classList.add(config.inactiveButtonClass);
-  };
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
+    });
+  });
+};
+
+const resetFormValidation = (formEl) => {
+  const inputList = Array.from(formEl.querySelectorAll(settings.inputSelector));
+  const buttonElement = formEl.querySelector(settings.submitButtonSelector);
+  disableSubmitButton(buttonElement, settings);
+  resetValidation(formEl, inputList);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(formEl, inputElement, settings);
+      toggleButtonState(inputList, buttonElement, settings);
     });
   });
 };
