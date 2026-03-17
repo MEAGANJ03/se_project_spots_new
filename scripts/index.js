@@ -94,6 +94,11 @@ function getCardElement(data) {
 }
 
 function openModal(modal) {
+  function handleClickOutside(evt) {
+    if (evt.target.classList.contains("modal")) {
+      closeModal(evt.target);
+    }
+  }
   modal.classList.add("modal_is-opened");
   function handleEscKey(evt) {
     if (evt.key === "Escape") {
@@ -103,6 +108,7 @@ function openModal(modal) {
       }
     }
   }
+  document.addEventListener("mousedown", handleClickOutside);
   document.addEventListener("keydown", handleEscKey);
 }
 
@@ -141,10 +147,6 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostLinkEl = newPostModal.querySelector("#new-post-link-input");
 const newPostTitleEl = newPostModal.querySelector("#new-post-caption-input");
-
-newPostBtn.addEventListener("click", function () {
-  openModal(newPostModal);
-});
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
